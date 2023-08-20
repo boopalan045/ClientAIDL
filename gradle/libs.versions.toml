@@ -1,0 +1,38 @@
+[versions]
+ktx = "1.10.1"
+androidxLifecycle = "2.6.1"
+androidxActivity = "1.7.2"
+androidxCompose = "2023.08.00"
+androidJunit = "4.13.2"
+androidxTest = "1.1.5"
+androidxTestEspresso = "3.5.1"
+bom = "2023.08.00"
+android-gradle = "8.0.0"
+android-kotlin = "1.7.20"
+
+[libraries]
+androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
+androidx-activity-ktx = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
+androidx-compose-ktx = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxCompose" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+android-testImplementation = { group = "junit", name = "junit" , version.ref = "androidJunit"}
+androidx-testImplementation-junit = { group = "androidx.test.ext", name = "junit" , version.ref = "androidxTest"}
+androidx-testImplementation-espresso = { group = "androidx.test.espresso", name = "espresso-core" , version.ref = "androidxTestEspresso"}
+androidx-testImplementation-compose = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-testImplementation-bom = { group = "androidx.compose", name = "compose-bom",version.ref="bom" }
+androidx-testImplementation-compose-ui = { group = "androidx.compose.ui", name = "ui-tooling"}
+androidx-testImplementation-compose-ui-test = { group = "androidx.compose.ui", name = "ui-test-manifest"}
+
+[bundles]
+compose = ["androidx-compose-ui", "androidx-compose-ui-graphics", "androidx-compose-ui-tooling", "androidx-material3"]
+test = ["androidx-testImplementation-junit","androidx-testImplementation-espresso","androidx-testImplementation-compose"]
+debugtest = ["androidx-testImplementation-compose-ui","androidx-testImplementation-compose-ui-test"]
+
+[plugins]
+android-application = {id = "com.android.application", version.ref = "android-gradle"}
+android-library = {id = "com.android.library", version.ref = "android-gradle"}
+android-kotlin = {id = "org.jetbrains.kotlin.android", version.ref = "android-kotlin"}
